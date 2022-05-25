@@ -1,0 +1,25 @@
+{% extends 'temp/main.html' %}
+{% block content %}
+{% load static %}
+<div style="margin-bottom: 44%;">
+<center>
+    <form action method="POST">
+        
+        {% csrf_token %}
+        <input type="text" name="amount" placeholder="Amount"  required><br><br>
+        <!--<input type="text" name="upi_id" placeholder="UPI Id" value="6351489115@paytm"><br><br>
+        <input type="text" name="name" placeholder="Name as per Upi ID" value="Patel Javal Kalpeshbhai"><br><br>-->
+        <h3>Name :- {{ name }}</h3>
+        <h3>Upi ID :- {{ upi_id }}</h3>
+        <input type="hidden" name="upi_id" value="{{ upi_id }}">
+        <input type="hidden" name="name" value="{{ name }}">
+        <input type="submit" value="Generate QR Code">
+    </form>
+
+    <br><br><br>
+    {% if amount != "None" %}
+    <img src="{% static '/myqr.png' %}">
+    {% endif %}
+</center>
+</div>
+{% endblock %}

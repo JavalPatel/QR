@@ -1,0 +1,11 @@
+{% extends 'temp/main.html' %}
+{% block content %}
+<div style="margin-bottom: 44%;">
+    <form action method="POST">
+        {% csrf_token %}
+        <input type="test" name="uname" placeholder="Username" required>
+        <input type="password" name="password" placeholder="Password" required>
+        <input type="submit" name="Login">
+    </form>
+</div>
+{% endblock %}
